@@ -10,15 +10,15 @@ import Clients from "./pages/protected/admin/Clients";
 const isAuthenticated = true;
 const isAdmin = true;
 
-const ProtectedRoute = ({ children }) => (isAuthenticated ? children : <Navigate to="/login" replace />);
+const ProtectedRoute = ({ children }) => (isAuthenticated ? children : <Navigate to="/signin" replace />);
 const AdminRoute = ({ children }) => (isAuthenticated && isAdmin ? children : <Navigate to="/projects" replace />);
 
 const routesConfig = [
   {
     element: <AuthLayout />,
     children: [
-      { path: "/signin", element: <SignIn /> },
       { path: "/signup", element: <SignUp /> },
+      { path: "/signin", element: <SignIn /> },
     ],
   },
   {

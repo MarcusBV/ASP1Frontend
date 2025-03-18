@@ -4,6 +4,22 @@
   --font-standard: "Nunito", sans-serif;
   --font-logotype: "Comfortaa", sans-serif;
 
+  --blue-light: #dbedff;
+  --blue-semilight: #9dceff;
+  --blue: #2d99ff;
+  --blue-dark: #2d7dcc;
+  --green-light: #d8ffdf;
+  --green-semilight: #b3ffc0;
+  --green: #119b56;
+  --green-dark: #187848;
+  --yellow-light: #fff6c7;
+  --yellow-semilight: #fff3b4;
+  --yellow: #6c6102;
+  --yellow-dark: #8b7400;
+  --red-light: #ffeae4;
+  --red-semilight: #ffb8a5;
+  --red: #de3434;
+  --red-dark: #b83030;
   --white-100: #ffffff;
   --white-200: #f5f7fa;
   --gray-100: #dedede;
@@ -11,8 +27,10 @@
   --dark-100: #1a1926;
   --dark-200: #28263b;
 
+  --auth-background: #eaecf0;
+
   --text-color: var(--dark-200);
-  --background-color: var(--white-200);
+  --background-color: #f1f3f7;
   --border-color: var(--gray-100);
 }
 
@@ -38,13 +56,61 @@ body {
   align-items: center;
   justify-content: center;
   height: 100dvh;
+  background-color: var(--auth-background);
+
+  > main {
+    width: 600px;
+    height: 700px;
+
+    > .auth {
+      height: 570px;
+      border-radius: 16px;
+      background-color: var(--white-100);
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      > .auth-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 400px;
+
+        h1 {
+          font-size: 36px;
+          font-weight: 700;
+        }
+
+        > form {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+          font-weight: 600;
+
+          > input {
+            padding: 0.8rem;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+
+    > .logotype {
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
+    }
+  }
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 1fr 65px;
   grid-template-rows: auto 1fr;
-  grid-template-areas: "logo header" "sidebar main";
+  grid-template-areas: "header logo" "main sidebar";
   height: 100dvh;
 
   @media (width >= 768px) {
@@ -55,11 +121,14 @@ body {
 
   > .logotype {
     grid-area: logo;
-    border-right: 1px solid var(--border-color);
+    border-right: 0px solid var(--border-color);
     padding: 2rem 1rem;
+    background-color: var(--dark-100);
 
     @media (width >= 768px) {
+      border-width: 1px;
       padding: 2rem 2rem;
+      background-color: var(--background-color);
     }
 
     span {
@@ -71,7 +140,7 @@ body {
     }
   }
 
-  > .header {
+  > header {
     grid-area: header;
     border-bottom: 1px solid var(--border-color);
     padding: 2rem;
@@ -79,11 +148,18 @@ body {
 
   > .sidebar {
     grid-area: sidebar;
-    border-right: 1px solid var(--border-color);
-    padding: 2rem;
+    border-right: 0px solid var(--border-color);
+    padding: 2rem 1rem;
+    background-color: var(--dark-100);
+
+    @media (width >= 768px) {
+      border-width: 1px;
+      padding: 2rem 2rem;
+      background-color: var(--background-color);
+    }
   }
 
-  > .main {
+  > main {
     grid-area: main;
     padding: 2rem;
   }
