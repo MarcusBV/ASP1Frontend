@@ -1,7 +1,14 @@
-import React from "react";
+import React from 'react'
+import LogotypeLink from '../components/LogotypeLink'
+import NavLinks from './NavLinks'
 
 const Sidebar = () => {
-  return <aside className="sidebar"></aside>;
-};
+  return (
+    <section className="sidebar">
+      <LogotypeLink />
+      <NavLinks />
+    </section>
+  )
+}
 
-export default Sidebar;
+export default Sidebar

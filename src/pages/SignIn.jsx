@@ -1,20 +1,15 @@
-import React from "react";
-
+import React, { useEffect } from 'react'
+import { useAuth } from '../contexts/AuthContext'
 const SignIn = () => {
-  return (
-    <div className="auth">
-      <div className="auth-content">
-        <h1>Sign in</h1>
-        <form action="">
-          <label htmlFor="username">Username</label>
-          <input type="text" placeholder="Username" name="username" required />
-          <label htmlFor="username">Password</label>
-          <input type="text" placeholder="Password" name="password" required />
-          <button type="submit">Sign in</button>
-        </form>
-      </div>
-    </div>
-  );
-};
+    const {auth} = useAuth()
 
-export default SignIn;
+    return (
+        <div>
+            SignIn
+            <div>{auth.isAuthenticated ? 'yes': 'no'}</div>
+            <div>{auth.loading ? 'yes': 'no'}</div>
+        </div>
+    )
+}
+
+export default SignIn
