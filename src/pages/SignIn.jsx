@@ -6,10 +6,10 @@ const SignIn = () => {
       <div className="auth-content">
         <h1>Sign in</h1>
         <form action="">
-          <label htmlFor="userName">Username</label>
-          <input type="text" placeholder="Username" name="userName" required />
-          <label htmlFor="userName">Username</label>
-          <input type="text" placeholder="Username" name="userName" required />
+          <label htmlFor="username">Username</label>
+          <input type="text" placeholder="Username" name="username" required />
+          <label htmlFor="username">Password</label>
+          <input type="text" placeholder="Password" name="password" required />
           <button type="submit">Sign in</button>
         </form>
       </div>
