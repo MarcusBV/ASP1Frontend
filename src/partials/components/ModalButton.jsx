@@ -1,4 +1,5 @@
 import React from "react";
+import { ProjectsContext } from "../../contexts/ProjectsContext";
 
 const ModalButton = ({ type, target, text }) => {
   return (
