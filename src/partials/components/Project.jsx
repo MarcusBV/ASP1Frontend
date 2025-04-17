@@ -10,7 +10,7 @@ const Project = ({ project }) => {
             <h5 className="nowrap">{project.projectName}</h5>
             <h6 className="nowrap">{project.client.clientName}</h6>
           </div>
-          <button className="project-menu-button">...</button>
+          <button className="btn btn-project-menu"></button>
         </div>
         <div className="">{project.description}</div>
       </div>

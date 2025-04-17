@@ -91,7 +91,7 @@
   --table-header-text-color: var(--gray-800);
   --table-tbody-tr-background-hover-color: var(--blue-accent-10);
 
-  --modal-screen-background-color: var(--dark-100-a);
+  --modal-screen-background-color: var(--dark-opacity-20);
   --modal-background-color: var(--white);
 
   --form-text-color: var(--white);
@@ -465,7 +465,7 @@ a:hover {
 /* modals */
 .modal {
   background-color: var(--modal-screen-background-color);
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -705,9 +705,24 @@ section > .content {
   margin-left: auto;
 }
 
+.btn-project-menu::before {
+  content: "\22EF";
+  font-family: var(--font-fa-pro);
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
 .project-logo {
   height: 56px;
   width: 56px;
   background-color: #98f8ce;
   border-radius: 14px;
+}
+
+.add-project-form {
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 400px;
+  background-color: var(--modal-background-color);
 }
