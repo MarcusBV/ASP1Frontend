@@ -8,11 +8,18 @@ const Projects = () => {
   const { projects } = useContext(ProjectsContext);
 
   const [isModalActive, setIsModalActive] = useState(false);
+  const [showCompleted, setShowCompleted] = useState(false);
 
   const handleAddProjectModal = () => {
     setIsModalActive(true);
     console.log("Modal opened");
   };
+
+  const updateProjects = (e) => {
+    setShowCompleted(e.target.checked);
+  };
+
+  const filteredProjects = showCompleted ? projects.filter((project) => project.status.id === 2) : projects;
 
   const handleSubmit = async (e, inputs) => {
     e.preventDefault();
@@ -49,10 +56,14 @@ const Projects = () => {
     <div>
       <div className="page-header">
         <h2>Projects</h2>
+        <div>
+          <h4>Completed: </h4>
+          <input type="checkbox" name="status" onChange={updateProjects} />
+        </div>
         <ModalButton type="add" target="#addProjectModal" text="Add Project" onClick={handleAddProjectModal} />
       </div>
       <div className="projects-wrapper">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <Project key={project.id} project={project} />
         ))}
       </div>

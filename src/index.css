@@ -653,6 +653,7 @@ section > .content {
 
 .projects-wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .project {
