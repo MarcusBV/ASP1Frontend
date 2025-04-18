@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { ProjectsProvider } from "./contexts/ProjectsContext.jsx";
+import { ClientsProvider } from "./contexts/ClientsContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ProjectsProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ProjectsProvider>
+    <ClientsProvider>
+      <ProjectsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ProjectsProvider>
+    </ClientsProvider>
   </StrictMode>
 );

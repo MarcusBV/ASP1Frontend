@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ClientsContext } from "../../contexts/ClientsContext";
 
 const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
   // tog hjälp av AI för formData, handleChange och handleSubmit då jag fastnade på hur jag ska skicka tillbaka formdatan till Projects
+
+  const { clients } = useContext(ClientsContext);
 
   const [formData, setFormData] = useState({
     //delvis AI-genererad kod
@@ -10,6 +13,7 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
     startDate: "",
     endDate: "",
     budget: "",
+    clientId: "",
     status: "",
   });
 
@@ -21,6 +25,7 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
         startDate: new Date(project.startDate).toISOString().split("T")[0],
         endDate: new Date(project.endDate).toISOString().split("T")[0],
         budget: project.budget,
+        clientId: project.client.id,
         status: project.status.id == 2 ? true : false,
       });
     }
@@ -70,6 +75,16 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
         <div className="form-group">
           <label className="">Budget</label>
           <input type="number" name="budget" value={formData.budget} onChange={handleChange} />
+        </div>
+        <div className="form-group">
+          <label className="">Client</label>
+          <select name="client">
+            {clients.map((client) => (
+              <option key={client.id} value={formData.clientId} onChange={handleChange}>
+                {client.clientName}
+              </option>
+            ))}
+          </select>
         </div>
         {isEdit && (
           <div className="form-group">
