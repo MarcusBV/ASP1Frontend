@@ -28,7 +28,21 @@ const Projects = () => {
       statusId: 1,
     };
 
-    console.log(formData);
+    const res = await fetch("https://localhost:7149/api/projects", {
+      method: "POST",
+      headers: {
+        "X-API-KEY": "393a4bae9c334cbbb90e38bcc56a62b3",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      alert("Project added successfully!");
+      setIsModalActive(false);
+    } else {
+      alert("Create project failed, check inputs and try again.");
+    }
   };
 
   return (
@@ -42,7 +56,7 @@ const Projects = () => {
           <Project key={project.id} project={project} />
         ))}
       </div>
-      {isModalActive && <ProjectModal onClick={handleSubmit} />}
+      {isModalActive && <ProjectModal onClick={handleSubmit} isEdit={false} />}
     </div>
   );
 };

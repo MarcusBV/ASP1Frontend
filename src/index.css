@@ -138,6 +138,7 @@ body {
   grid-template-rows: minmax(80px, auto) 1fr;
   grid-template-areas: "sidebar top" "sidebar main";
   height: 100dvh;
+  width: 100dvw;
 
   > header,
   > .header {
@@ -473,6 +474,7 @@ a:hover {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1000;
 }
 
 .modal > .modal-content {
@@ -699,12 +701,6 @@ section > .content {
   text-overflow: ellipsis;
 }
 
-.project-menu-button {
-  height: 24px;
-  width: 24px;
-  margin-left: auto;
-}
-
 .btn-project-menu::before {
   content: "\22EF";
   font-family: var(--font-fa-pro);
@@ -725,4 +721,12 @@ section > .content {
   border-radius: 16px;
   width: 400px;
   background-color: var(--modal-background-color);
+}
+
+.project-menu {
+  position: absolute;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background-color: var(--white-100);
 }
