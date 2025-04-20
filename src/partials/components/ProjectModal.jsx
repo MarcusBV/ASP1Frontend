@@ -33,7 +33,6 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
 
   const handleChange = (e) => {
     //AI-genererad kod
-    console.log(e.target.value);
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -44,7 +43,6 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
   const handleSubmit = (e) => {
     //AI-genererad kod
     e.preventDefault();
-    console.log(formData);
     onClick(e, formData);
   };
 

@@ -13,7 +13,6 @@ const Projects = () => {
 
   const handleAddProjectModal = () => {
     setIsModalActive(true);
-    console.log("Modal opened");
   };
 
   const updateProjects = (e) => {

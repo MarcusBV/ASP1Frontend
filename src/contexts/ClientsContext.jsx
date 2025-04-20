@@ -17,7 +17,6 @@ export const ClientsProvider = ({ children }) => {
     if (res.ok) {
       const data = await res.json();
       setClients(data);
-      console.log(data);
     }
   };
 

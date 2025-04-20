@@ -17,7 +17,6 @@ export const ProjectsProvider = ({ children }) => {
     if (res.ok) {
       const data = await res.json();
       setProjects(data);
-      console.log(data);
     }
   };
 
