@@ -33,6 +33,7 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
 
   const handleChange = (e) => {
     //AI-genererad kod
+    console.log(e.target.value);
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -78,9 +79,9 @@ const ProjectModal = ({ onClick, isEdit = false, project = {} }) => {
         </div>
         <div className="form-group">
           <label className="">Client</label>
-          <select name="client">
+          <select name="clientId" value={formData.clientId} onChange={handleChange}>
             {clients.map((client) => (
-              <option key={client.id} value={formData.clientId} onChange={handleChange}>
+              <option key={client.id} value={client.id}>
                 {client.clientName}
               </option>
             ))}

@@ -1,15 +1,16 @@
 import { createContext, useEffect, useState } from "react";
+import { apiUri, apiKey } from "./Context";
 
 export const ClientsContext = createContext();
 export const ClientsProvider = ({ children }) => {
-  const apiUri = "https://localhost:7149/api/clients";
+  const clientsApi = `${apiUri}/clients`;
 
   const [clients, setClients] = useState([]);
 
   const getClients = async () => {
-    const res = await fetch(apiUri, {
+    const res = await fetch(clientsApi, {
       headers: {
-        "X-API-KEY": "393a4bae9c334cbbb90e38bcc56a62b3",
+        "X-API-KEY": apiKey,
       },
     });
 

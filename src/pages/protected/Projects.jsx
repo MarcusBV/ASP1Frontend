@@ -3,6 +3,7 @@ import { ProjectsContext } from "../../contexts/ProjectsContext";
 import ModalButton from "../../partials/components/ModalButton";
 import Project from "../../partials/components/Project";
 import ProjectModal from "../../partials/components/ProjectModal";
+import { apiUri, apiKey } from "../../contexts/Context";
 
 const Projects = () => {
   const { projects } = useContext(ProjectsContext);
@@ -30,15 +31,15 @@ const Projects = () => {
       startDate: inputs.startDate,
       endDate: inputs.endDate,
       budget: inputs.budget,
-      clientId: "1d69d86e-6dea-47fd-822f-76db7fe68dd3",
+      clientId: inputs.clientId,
       userId: "8825e714-c67e-4dae-8915-cf769b2136f7",
       statusId: 1,
     };
 
-    const res = await fetch("https://localhost:7149/api/projects", {
+    const res = await fetch(`${apiUri}/projects`, {
       method: "POST",
       headers: {
-        "X-API-KEY": "393a4bae9c334cbbb90e38bcc56a62b3",
+        "X-API-KEY": apiKey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),

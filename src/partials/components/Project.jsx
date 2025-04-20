@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProjectModal from "./ProjectModal";
+import { apiUri, apiKey } from "../../contexts/Context";
 
 const Project = ({ project }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -9,10 +10,10 @@ const Project = ({ project }) => {
   };
 
   const handleDelete = async () => {
-    const res = await fetch(`https://localhost:7149/api/projects/${project.id}`, {
+    const res = await fetch(`${apiUri}/projects/${project.id}`, {
       method: "DELETE",
       headers: {
-        "X-API-KEY": "393a4bae9c334cbbb90e38bcc56a62b3",
+        "X-API-KEY": apiKey,
       },
     });
 
@@ -39,15 +40,15 @@ const Project = ({ project }) => {
       startDate: inputs.startDate,
       endDate: inputs.endDate,
       budget: inputs.budget,
-      clientId: "1d69d86e-6dea-47fd-822f-76db7fe68dd3",
+      clientId: inputs.clientId,
       userId: "8825e714-c67e-4dae-8915-cf769b2136f7",
       statusId: inputs.status ? 2 : 1,
     };
 
-    const res = await fetch(`https://localhost:7149/api/projects/`, {
+    const res = await fetch(`${apiUri}/projects`, {
       method: "PUT",
       headers: {
-        "X-API-KEY": "393a4bae9c334cbbb90e38bcc56a62b3",
+        "X-API-KEY": apiKey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
